@@ -1,0 +1,469 @@
+css
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:'Poppins',sans-serif;
+    background:#000;
+}
+
+/* =========================
+   GALAXY BACKGROUND
+========================= */
+
+body{
+    background:
+    radial-gradient(circle at 20% 20%, #2b1055, transparent 40%),
+    radial-gradient(circle at 80% 30%, #7597de, transparent 35%),
+    radial-gradient(circle at 50% 80%, #ff0080, transparent 35%),
+    radial-gradient(circle at center, #050505, #000);
+}
+
+#particles-bg{
+    position:fixed;
+    inset:0;
+    z-index:0;
+}
+
+/* =========================
+   MAIN SECTION
+========================= */
+
+.hero{
+    position:relative;
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    z-index:10;
+    text-align:center;
+    padding:20px;
+}
+
+/* =========================
+   TYPEWRITER
+========================= */
+
+#typewriter{
+    font-size:1.4rem;
+    color:#fff;
+    margin-bottom:30px;
+    min-height:60px;
+    letter-spacing:1px;
+    text-shadow:
+    0 0 10px #fff,
+    0 0 20px #ff66cc;
+}
+
+/* =========================
+   HEART WRAPPER
+========================= */
+
+.heart-wrapper{
+    position:relative;
+    width:250px;
+    height:250px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    margin-bottom:30px;
+
+    animation:floatHeart 4s ease-in-out infinite;
+}
+
+@keyframes floatHeart{
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-20px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* =========================
+   MAIN HEART
+========================= */
+
+.heart{
+    position:relative;
+
+    width:120px;
+    height:120px;
+
+    background:#ff0066;
+
+    transform:rotate(-45deg);
+
+    animation:
+    beat 1s infinite,
+    glowHeart 2s infinite alternate;
+}
+
+.heart::before,
+.heart::after{
+    content:"";
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    background:#ff0066;
+    border-radius:50%;
+}
+
+.heart::before{
+    top:-60px;
+    left:0;
+}
+
+.heart::after{
+    left:60px;
+    top:0;
+}
+
+@keyframes beat{
+    0%{
+        transform:rotate(-45deg) scale(1);
+    }
+
+    25%{
+        transform:rotate(-45deg) scale(1.08);
+    }
+
+    50%{
+        transform:rotate(-45deg) scale(1.15);
+    }
+
+    100%{
+        transform:rotate(-45deg) scale(1);
+    }
+}
+
+@keyframes glowHeart{
+    from{
+        box-shadow:
+        0 0 20px #ff0066,
+        0 0 50px #ff0066,
+        0 0 100px #ff0066;
+    }
+
+    to{
+        box-shadow:
+        0 0 40px #ff66cc,
+        0 0 80px #ff66cc,
+        0 0 150px #ff66cc;
+    }
+}
+
+/* =========================
+   LOVE TITLE
+========================= */
+
+.love-title{
+
+    font-size:5rem;
+    font-weight:700;
+
+    background:
+    linear-gradient(
+        90deg,
+        #ff0000,
+        #ff66cc,
+        #ff00ff,
+        #00ffff,
+        #ff0000
+    );
+
+    background-size:300%;
+
+    background-clip:text;
+    -webkit-background-clip:text;
+
+    color:transparent;
+    -webkit-text-fill-color:transparent;
+
+   
+
+    animation:
+    rainbow 5s linear infinite,
+    pulseText 2s infinite;
+
+    text-shadow:
+    0 0 20px rgba(255,255,255,.8);
+}
+
+@keyframes rainbow{
+    0%{
+        background-position:0%;
+    }
+
+    100%{
+        background-position:300%;
+    }
+}
+
+@keyframes pulseText{
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.05);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+/* =========================
+   MESSAGE BOX
+========================= */
+
+.message-box{
+
+    margin-top:30px;
+
+    width:min(800px,90%);
+
+    padding:25px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:25px;
+
+    box-shadow:
+    0 0 20px rgba(255,105,180,.4);
+}
+
+#love-message{
+
+    color:white;
+
+    font-size:1.5rem;
+
+    line-height:1.8;
+
+    transition:.5s;
+}
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.music-btn{
+
+    margin-top:30px;
+
+    padding:15px 30px;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-weight:600;
+
+    border-radius:40px;
+
+    background:
+    linear-gradient(
+        45deg,
+        #ff0066,
+        #ff66cc
+    );
+
+    box-shadow:
+    0 0 20px #ff66cc;
+
+    transition:.4s;
+}
+
+.music-btn:hover{
+
+    transform:
+    translateY(-4px)
+    scale(1.05);
+
+    box-shadow:
+    0 0 40px #ff66cc;
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.floating-heart{
+
+    position:fixed;
+
+    font-size:24px;
+
+    pointer-events:none;
+
+    z-index:5;
+
+    animation:heartFly linear forwards;
+}
+
+@keyframes heartFly{
+
+    0%{
+        transform:
+        translateY(100vh)
+        rotate(0deg);
+
+        opacity:1;
+    }
+
+    100%{
+        transform:
+        translateY(-120vh)
+        rotate(720deg);
+
+        opacity:0;
+    }
+}
+
+/* =========================
+   ROSE PETALS
+========================= */
+
+.petal{
+
+    position:fixed;
+
+    width:18px;
+    height:18px;
+
+    background:
+    radial-gradient(
+    circle,
+    #ff4d88,
+    #cc0052
+    );
+
+    border-radius:
+    60% 40% 60% 40%;
+
+    z-index:4;
+
+    pointer-events:none;
+
+    animation:petalFall linear forwards;
+}
+
+@keyframes petalFall{
+
+    0%{
+        transform:
+        translateY(-100px)
+        rotate(0deg);
+        opacity:1;
+    }
+
+    100%{
+        transform:
+        translateY(120vh)
+        translateX(150px)
+        rotate(720deg);
+
+        opacity:0;
+    }
+}
+
+/* =========================
+   FIREWORKS CANVAS
+========================= */
+
+#fireworks{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:2;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    position:absolute;
+
+    bottom:20px;
+
+    color:white;
+
+    opacity:.8;
+
+    font-size:.9rem;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .love-title{
+        font-size:3rem;
+    }
+
+    #love-message{
+        font-size:1.1rem;
+    }
+
+    .heart-wrapper{
+        width:180px;
+        height:180px;
+    }
+
+    .heart,
+    .heart::before,
+    .heart::after{
+        width:90px;
+        height:90px;
+    }
+
+    .heart::before{
+        top:-45px;
+    }
+
+    .heart::after{
+        left:45px;
+    }
+
+    #typewriter{
+        font-size:1rem;
+    }
+}
+
